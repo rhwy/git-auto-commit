@@ -8,7 +8,7 @@ var pkg = require('./package.json');
 var CWD = process.cwd();
 
 var startDate = new Date();
-var counter = 0;
+var counter = 1;
 
 program.version(pkg.version)
 	.option('-t, --time <n>', 'seconds between two commits', parseFloat)
@@ -46,8 +46,7 @@ function addAll() {
 }
 
 function commit() {
-  counter = counter + 1;
-	return run('git', ['commit', '-m', '[GIT AUTO COMMIT]: ' + getFormattedDate(startDate) + '-' + counter ]);
+  return run('git', ['commit', '-m', '[GIT AUTO COMMIT]: ' + getFormattedDate(startDate) + '-' + counter ]);
 }
 
 function push(){
@@ -69,6 +68,10 @@ setInterval(function() {
     .then(commit)
     .then(push)
     .then(function() {
+      if(program.push !==undefined)
+      {
+        counter = counter + 1;
+      }
       console.log(('[GIT AUTO COMMIT]: Commit success at ' + (new Date()).toString()).green);
     }).catch(function (e) {
       console.log(('[GIT AUTO COMMIT]: ' + e.message).red);
