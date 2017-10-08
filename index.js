@@ -11,7 +11,7 @@ var startDate = new Date();
 var counter = 1;
 
 program.version(pkg.version)
-	.option('-t, --time <n>', 'seconds between two commits', parseFloat)
+	.option('-t, --time <n>', 'seconds between two auto commits', parseFloat)
 	.option('-p, --push <n>', 'push to specified remote after commit')
 	.option('-b, --branch <n>', 'name of the branch to push')
 	.parse(process.argv);
