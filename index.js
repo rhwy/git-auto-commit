@@ -29,15 +29,18 @@ function run(command, args) {
     task.stderr.pipe(process.stderr);
   });
 }
+function pad(n){ return (n<10) ? "0" + n : n ;} 
+
 function getFormattedDate(date)
 {
   return date.getFullYear()+
-        pad(d.getMonth())
-        pad(d.getDate())+
-        pad(d.getHours())+
-        pad(d.getMinutes())+
-        pad(d.getSeconds());
+        pad(date.getMonth())
+        pad(date.getDate())+
+        pad(date.getHours())+
+        pad(date.getMinutes())+
+        pad(date.getSeconds());
 }
+
 function addAll() {
 	return run('git', ['add', '--all']);
 }
