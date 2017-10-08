@@ -33,12 +33,12 @@ function pad(n){ return (n<10) ? "0" + n : n ;}
 
 function getFormattedDate(date)
 {
-  return date.getFullYear()+
-        pad(date.getMonth()+1)
-        pad(date.getDay())+
-        pad(date.getHours())+
-        pad(date.getMinutes())+
-        pad(date.getSeconds());
+  return date.getFullYear() + "" +
+        pad(date.getMonth()+1) + "" + 
+        pad(date.getDay()) + ""+
+        pad(date.getHours()) + ""+
+        pad(date.getMinutes()) + ""+
+        pad(date.getSeconds()) + "";
 }
 
 function addAll() {
