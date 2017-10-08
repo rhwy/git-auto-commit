@@ -1,7 +1,7 @@
 {
   "name": "git-auto-work",
   "version": "2.0.10",
-  "description": "A git auto commit and push tool. this is mainly useful to : 1/ backup writing work, 2/check student's steps of work",
+  "description": "A git auto commit and push tool. Use it for anything you want to incrementally save but the original targets where : 1/ backup writing work, 2/check student's steps of work",
   "bin": {
     "gaw": "./index.js"
   },
