@@ -1,25 +1,32 @@
-# git-auto-commit
+# git-auto-work
 
-A git auto commit tool, commit every several minutes
+A git auto commit and publish tool. This tool can automatically do a commit to the current repo every defined interval. 
+If specified it can also automatically push the changes to a remote target.
+
+for exemple:
+
+        `gaw -t 60 -p origin -b master` 
+
+this means that every 60s it will commit all the changes to the current repository and push the changes to origin master
 
 ## Install
 
 ```shell
-$ npm install -g git-auto-commit
+$ npm install -g git-auto-work
 ```
 
 ## Usage
 
 ```shell
-gac [options]
+gaw [options]
 ```
 
 ## Options
-
-
 * `-h, --help`: output usage information
 * `-V, --version`: output the version number
-* `-t, --time <n>`: minutes between two commits, the default value is `5` which means to commit every 5 minutes
+* `-t, --time <n>`: seconds between two commits, the default value is `300` which means that a commit will happend every 5 minutes
+* `-p, --push <r>`: if present, a push will be done to the remote name specified after -p
+* `-b, --branch <b>`: to use with -p, it will define the branch to push to remote, whereas it will be master
 
 ## License
 
