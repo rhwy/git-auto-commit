@@ -44,9 +44,16 @@ function addAll() {
 	return run('git', ['add', '--all']);
 }
 
-/** This is a description of the foo function. */
+/** 
+ * This action will create a new commit based on all changes.
+ * It will apply a message with the following pattern:
+ * [GAW]: {date}-{counter}
+ * where: 
+ *   - GAW is a marker for GIT-AUTO-WORK
+ *   - {date} is a textual sortable date in YYYYMMDDHHmm format
+ *   - {counter} is the internal counter of this session, starting at 1 */
 function commit() {
-  return run('git', ['commit', '-m', '[GIT AUTO WORK]: ' + getFormattedDate(startDate) + '-' + counter ]);
+  return run('git', ['commit', '-m', '[GAW]: ' + getFormattedDate(startDate) + '-' + counter ]);
 }
 
 function push(){
@@ -74,8 +81,8 @@ setInterval(function() {
         counter = counter + 1;
         actionDone = "Commit & push";
       }
-      console.log(('[GIT AUTO WORK]: ' + actionDone + ' success at ' + (new Date()).toString()).green);
+      console.log(('[GAW]: ' + actionDone + ' success at ' + (new Date()).toString()).green);
     }).catch(function (e) {
-      console.log(('[GIT AUTO WORK]: ' + e.message).red);
+      console.log(('[GAW]: ' + e.message).red);
     });
 }, (program.time || 300) * 1000);
