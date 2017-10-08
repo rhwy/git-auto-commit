@@ -22,11 +22,10 @@ gaw [options]
 ```
 
 ## Options
-* `-h, --help`: output usage information
-* `-V, --version`: output the version number
 * `-t, --time <n>`: seconds between two commits, the default value is `300` which means that a commit will happend every 5 minutes
 * `-p, --push <r>`: if present, a push will be done to the remote name specified after -p
 * `-b, --branch <b>`: to use with -p, it will define the branch to push to remote, whereas it will be master
+* `-h, --help`: output usage information
 
 ## License
 
