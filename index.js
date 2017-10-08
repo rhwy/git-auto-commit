@@ -7,6 +7,8 @@ var spawn = require('child_process').spawn;
 var pkg = require('./package.json');
 var CWD = process.cwd();
 
+var startDate = new Date();
+
 program.version(pkg.version)
 	.option('-t, --time <n>', 'seconds between two commits', parseFloat)
 	.option('-p, --push <n>', 'push to specified remote after commit')
@@ -47,6 +49,7 @@ function push(){
     return Promise.resolve();
   }
 }
+
 setInterval(function() {
   Promise.resolve()
     .then(addAll)
