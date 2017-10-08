@@ -26,10 +26,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rhwy/git-auto-commit.git"
+    "url": "git+https://github.com/rhwy/git-auto-work.git"
   },
   "bugs": {
-    "url": "https://github.com/rhwy/git-auto-commit/issues"
+    "url": "https://github.com/rhwy/git-auto-work/issues"
   },
-  "homepage": "https://github.com/rhwy/git-auto-commit#readme"
+  "homepage": "https://github.com/rhwy/git-auto-work#readme"
 }
