@@ -44,7 +44,7 @@ function addAll() {
 
 function commit() {
   counter = counter + 1;
-	return run('git', ['commit', '-m', '"[GIT AUTO COMMIT]: ' + new Date().toString() + '"']);
+	return run('git', ['commit', '-m', '"[GIT AUTO COMMIT]: ' + getFormattedDate(startDate) + '-' + counter + '"']);
 }
 
 function push(){
