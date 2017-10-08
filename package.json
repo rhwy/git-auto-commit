@@ -1,6 +1,6 @@
 {
   "name": "git-auto-work",
-  "version": "1.0.0",
+  "version": "2.0.10",
   "description": "A git auto commit and push tool. this is mainly useful to : 1/ backup writing work, 2/check student's steps of work",
   "bin": {
     "gaw": "./index.js"
@@ -20,8 +20,8 @@
   "license": "MIT",
   "dependencies": {
     "colors": "^1.1.2",
-    "commander": "^2.8.1",
-    "promise": "^7.0.3"
+    "commander": "^2.11.0",
+    "promise": "^8.0.1"
   },
   "devDependencies": {},
   "repository": {
