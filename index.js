@@ -37,8 +37,7 @@ function getFormattedDate(date)
         pad(date.getMonth()+1) + "" + 
         pad(date.getDate()) + ""+
         pad(date.getHours()) + ""+
-        pad(date.getMinutes()) + ""+
-        pad(date.getSeconds()) + "";
+        pad(date.getMinutes()) + "";
 }
 
 function addAll() {
