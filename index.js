@@ -44,8 +44,9 @@ function addAll() {
 	return run('git', ['add', '--all']);
 }
 
+/** This is a description of the foo function. */
 function commit() {
-  return run('git', ['commit', '-m', '[GIT AUTO COMMIT]: ' + getFormattedDate(startDate) + '-' + counter ]);
+  return run('git', ['commit', '-m', '[GIT AUTO WORK]: ' + getFormattedDate(startDate) + '-' + counter ]);
 }
 
 function push(){
@@ -67,12 +68,14 @@ setInterval(function() {
     .then(commit)
     .then(push)
     .then(function() {
+      var actionDone = "Commit";
       if(program.push !==undefined)
       {
         counter = counter + 1;
+        actionDone = "Commit & push";
       }
-      console.log(('[GIT AUTO COMMIT]: Commit success at ' + (new Date()).toString()).green);
+      console.log(('[GIT AUTO WORK]: Commit success at ' + (new Date()).toString()).green);
     }).catch(function (e) {
-      console.log(('[GIT AUTO COMMIT]: ' + e.message).red);
+      console.log(('[GIT AUTO WORK]: ' + e.message).red);
     });
 }, (program.time || 300) * 1000);
