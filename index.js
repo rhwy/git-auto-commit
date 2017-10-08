@@ -74,7 +74,7 @@ setInterval(function() {
         counter = counter + 1;
         actionDone = "Commit & push";
       }
-      console.log(('[GIT AUTO WORK]: Commit success at ' + (new Date()).toString()).green);
+      console.log(('[GIT AUTO WORK]: ' + actionDone + ' success at ' + (new Date()).toString()).green);
     }).catch(function (e) {
       console.log(('[GIT AUTO WORK]: ' + e.message).red);
     });
