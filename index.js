@@ -8,6 +8,7 @@ var pkg = require('./package.json');
 var CWD = process.cwd();
 
 var startDate = new Date();
+var counter = 0;
 
 program.version(pkg.version)
 	.option('-t, --time <n>', 'seconds between two commits', parseFloat)
@@ -28,12 +29,21 @@ function run(command, args) {
     task.stderr.pipe(process.stderr);
   });
 }
-
+function getFormattedDate(date)
+{
+  return date.getFullYear()+
+        pad(d.getMonth())
+        pad(d.getDate())+
+        pad(d.getHours())+
+        pad(d.getMinutes())+
+        pad(d.getSeconds());
+}
 function addAll() {
 	return run('git', ['add', '--all']);
 }
 
 function commit() {
+  counter = counter + 1;
 	return run('git', ['commit', '-m', '"[GIT AUTO COMMIT]: ' + new Date().toString() + '"']);
 }
 
