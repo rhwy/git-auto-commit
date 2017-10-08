@@ -9,6 +9,8 @@ var CWD = process.cwd();
 
 program.version(pkg.version)
 	.option('-t, --time <n>', 'seconds between two commits', parseFloat)
+	.option('-p, --push <n>', 'push to specified remote after commit')
+	.option('-b, --branch <n>', 'name of the branch to push')
 	.parse(process.argv);
 
 function run(command, args) {
@@ -33,8 +35,24 @@ function commit() {
 	return run('git', ['commit', '-m', '"[GIT AUTO COMMIT]: ' + new Date().toString() + '"']);
 }
 
+function push(){
+  if(program.push !== undefined)
+  {
+    if(program.branch === undefined)
+    {
+      program.branch = "master";
+    }
+    return run('git',['push',program.push,program.branch]);
+  } else {
+    return Promise.resolve();
+  }
+}
 setInterval(function() {
-	Promise.resolve().then(addAll).then(commit).then(function() {
+  Promise.resolve()
+    .then(addAll)
+    .then(commit)
+    .then(push)
+    .then(function() {
 		console.log(('[GIT AUTO COMMIT]: Commit success at ' + (new Date()).toString()).green);
 	}).catch(function (e) {
 		console.log(('[GIT AUTO COMMIT]: ' + e.message).red);
