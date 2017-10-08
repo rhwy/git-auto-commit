@@ -35,7 +35,7 @@ function getFormattedDate(date)
 {
   return date.getFullYear() + "" +
         pad(date.getMonth()+1) + "" + 
-        pad(date.getDay()) + ""+
+        pad(date.getDate()) + ""+
         pad(date.getHours()) + ""+
         pad(date.getMinutes()) + ""+
         pad(date.getSeconds()) + "";
