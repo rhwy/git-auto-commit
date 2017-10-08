@@ -34,8 +34,8 @@ function pad(n){ return (n<10) ? "0" + n : n ;}
 function getFormattedDate(date)
 {
   return date.getFullYear()+
-        pad(date.getMonth())
-        pad(date.getDate())+
+        pad(date.getMonth()+1)
+        pad(date.getDay())+
         pad(date.getHours())+
         pad(date.getMinutes())+
         pad(date.getSeconds());
@@ -47,7 +47,7 @@ function addAll() {
 
 function commit() {
   counter = counter + 1;
-	return run('git', ['commit', '-m', '"[GIT AUTO COMMIT]: ' + getFormattedDate(startDate) + '-' + counter + '"']);
+	return run('git', ['commit', '-m', '[GIT AUTO COMMIT]: ' + getFormattedDate(startDate) + '-' + counter ]);
 }
 
 function push(){
@@ -69,8 +69,8 @@ setInterval(function() {
     .then(commit)
     .then(push)
     .then(function() {
-		console.log(('[GIT AUTO COMMIT]: Commit success at ' + (new Date()).toString()).green);
-	}).catch(function (e) {
-		console.log(('[GIT AUTO COMMIT]: ' + e.message).red);
-	});
+      console.log(('[GIT AUTO COMMIT]: Commit success at ' + (new Date()).toString()).green);
+    }).catch(function (e) {
+      console.log(('[GIT AUTO COMMIT]: ' + e.message).red);
+    });
 }, (program.time || 300) * 1000);
