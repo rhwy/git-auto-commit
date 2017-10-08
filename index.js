@@ -8,7 +8,7 @@ var pkg = require('./package.json');
 var CWD = process.cwd();
 
 program.version(pkg.version)
-	.option('-t, --time <n>', 'minutes between two commits', parseFloat)
+	.option('-t, --time <n>', 'seconds between two commits', parseFloat)
 	.parse(process.argv);
 
 function run(command, args) {
@@ -39,4 +39,4 @@ setInterval(function() {
 	}).catch(function (e) {
 		console.log(('[GIT AUTO COMMIT]: ' + e.message).red);
 	});
-}, (program.time || 5) * 60 * 1000);
+}, (program.time || 300) * 1000);
