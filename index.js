@@ -56,6 +56,12 @@ function commit() {
   return run('git', ['commit', '-m', '[GAW]: ' + getFormattedDate(startDate) + '-' + counter ]);
 }
 
+/**
+ * This action will push commited work to the specied origin and branch if correctly defined.
+ * it has to have the options:
+ *   -p (push) with the remote name
+ *   -b (branch) with the remote branch name (whereas it will be `master` by default)
+ */
 function push(){
   if(program.push !== undefined)
   {
